@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llava"
+version = "1.2.2.post1"
+description = "Towards GPT-4 like large language and visual assistant."
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+]
+dependencies = [
+    "transformers==4.37.2", "tokenizers==0.15.1", "sentencepiece==0.1.99", "shortuuid==1.0.13",
+    "accelerate==0.21.0", "peft==0.10.0", "bitsandbytes==0.43.1",
+    "pydantic==2.7.1", "markdown2[all]", "numpy==1.26.3", "scikit-learn==1.2.2",
+    "einops==0.6.1", "einops-exts==0.0.4", "timm==0.9.16",
+]
+
+[project.optional-dependencies]
+train = ["deepspeed==0.12.6", "ninja", "wandb"]
+build = ["build", "twine"]
+
+[project.urls]
+"Homepage" = "https://llava-vl.github.io"
+"Bug Tracker" = "https://github.com/haotian-liu/LLaVA/issues"
+
+[tool.setuptools.packages.find]
+exclude = ["scripts*"]
+
+[tool.wheel]
+exclude = ["scripts*"]
